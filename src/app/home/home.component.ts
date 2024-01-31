@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CurdService } from '../curd.service';
+import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-home',
@@ -7,23 +7,23 @@ import { CurdService } from '../curd.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  constructor(private _curd: CurdService) {}
+  constructor(private _crud: CrudService) {}
 
   newUsername: string = '';
   names!: string[];
 
   ngOnInit(): void {
-    this.names = this._curd.names;
+    this.names = this._crud.names;
   }
 
   addNewName() {
     if(this.newUsername === '') return
 
-    this._curd.names.push(this.newUsername);
+    this._crud.names.push(this.newUsername);
     this.newUsername = ''
   }
 
   deleteName(index: number) {
-    this._curd.names.splice(index, 1)
+    this._crud.names.splice(index, 1)
   }
 }
