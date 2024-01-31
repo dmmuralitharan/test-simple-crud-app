@@ -1,0 +1,14 @@
+<div class="crud" (submit)="addNewName()">
+    <form>
+        <label>Name : </label>
+        <input type="text" name="username" [(ngModel)]="newUsername">
+        <input type="submit">
+    </form>
+
+    <ul *ngFor="let name of names; let i = index">
+        <li>
+            <span>{{ i+1 }} - {{ name }}</span>
+            <button (click)="deleteName(i)">Delete</button>
+        </li>
+    </ul>
+</div>
